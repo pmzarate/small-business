@@ -1,0 +1,32 @@
+[
+    {
+        "id" : 1,
+        "Name": "Langford Delivery, Inc",
+        "Address" : "4704 Brushy Ridge Drive",
+        "City" : "Austin",
+        "State" : "Tx",
+        "Zip Code" : "78744",
+        "Desription" : "some kind of text in here",
+        "Hours": "09:00 - 21:00"
+    },
+    {
+        "id" : 2,
+        "Name" : "GSD&M",
+        "Address" : "828 W 6th St",
+        "City" : "Austin",
+        "State" : "Tx",
+        "Zip Code" : "78701",
+        "Desription" : "some kind of text in here",
+        "Hours": "09:00 - 21:00"
+    },
+    {
+        "id" : 3,
+        "Name" : "Cap Metro",
+        "Address" : "2910 E 5th",
+        "City" : "Austin",
+        "State" : "Tx",
+        "Zip Code" : "78702",
+        "Desription" : "some kind of text in here",
+        "Hours": "04:00 - 21:00"
+    }
+]
