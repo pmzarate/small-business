@@ -6,7 +6,7 @@
         "City" : "Austin",
         "State" : "Tx",
         "Zip Code" : "78744",
-        "Desription" : "some kind of text in here",
+        "Description" : "some kind of text in here",
         "Hours": "09:00 - 21:00"
     },
     {
@@ -16,7 +16,7 @@
         "City" : "Austin",
         "State" : "Tx",
         "Zip Code" : "78701",
-        "Desription" : "some kind of text in here",
+        "Description" : "some kind of text in here",
         "Hours": "09:00 - 21:00"
     },
     {
@@ -26,7 +26,26 @@
         "City" : "Austin",
         "State" : "Tx",
         "Zip Code" : "78702",
-        "Desription" : "some kind of text in here",
+        "Description" : "some kind of text in here",
         "Hours": "04:00 - 21:00"
+    },
+    {   "id" : 4,
+        "Name" : "Whole Foods Market",
+        "Address" : "525 N Lamar",
+        "City" : "Austin",
+        "State" : "Tx",
+        "Zip Code" : "78701",
+        "Description" : "high end grocery store",
+        "Hours": "07:00 - 12:00 (midnite)"
+    },
+    {
+        "id" : 5,
+        "Name" : "FGI",
+        "Address" : "3901 S Lamar",
+        "City" : "Austin",
+        "State" : "Tx",
+        "Zip Code" : "78704",
+        "Description" : "some kind of text in here",
+        "Hours": "09:00 - 16:30"
     }
 ]

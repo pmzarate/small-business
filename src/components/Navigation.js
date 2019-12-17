@@ -1,30 +1,33 @@
 import React from 'react'
-import { AppBar, Toolbar,
+import { AppBar, Toolbar, IconButton,
     Typography } from '@material-ui/core'
-// import MenuIcon from '@material-ui/icons/Menu'
-//import { Link } from 'react-router-dom'
+import MenuIcon from '@material-ui/icons/Menu'
+import { Link } from 'react-router-dom'
 
 const Navigation = () => {
     return (
-        <AppBar position="static">
+        <AppBar position="relative">
             <Toolbar>
-                {/* must import iconButton as well from mat-ui<IconButton color="inherit">
-                    <MenuIcon />
-                </IconButton> */}
+                <IconButton color="inherit">
+                     <MenuIcon />
+                </IconButton>
                 <Typography variant="h6" style={{ flexGrow: "1" }}>
                     ATX - Small Business Listing
                 </Typography>
-                <ul className="navigation">
-                    <button className="nav-item" variant="contained" color="primary">Listings
-                        {/* <Link to="/">Listings</Link> */}
-                    </button>
-                    <button className="nav-item">Login
-                        {/* <Link to="/about">Login</Link> */}
-                    </button>
-                    {/* <li className="nav-list-item">
-                        <Link to="/dashboard">Dashboard</Link>
+                <ul className="navigation-list">
+                    <li className="nav-list-item">
+                        <Link to="/">Current Listings</Link> 
                     </li>
-                   */}
+                    {/* <li className="nav-list-item">
+                        <Link to="/login">Login</Link>
+                    </li> */}
+                    <li className="nav-list-item"
+                        onClick={() => {
+                            document.cookie = "loggedIn="
+                            window.location.replace("/Login") 
+                        }}>
+                        LogOut
+                    </li>
                 </ul>
             </Toolbar>
         </AppBar>

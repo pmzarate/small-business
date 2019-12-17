@@ -1,15 +1,22 @@
 import React from 'react';
 import Navigation from './components/Navigation'
-//import Router from './Router'
 import './App.css';
-//import { BrowserRouter } from 'react-router-dom'
+import Router from './Router'
+import { BrowserRouter } from 'react-router-dom'
+
+import BusinessListings from './components/BusinessListings';
+import { BrowserRouter } from 'react-router-dom'
 //import logo from './logo.svg';
 
 
 function App() {
   return (
     <div className="App" >
-      <Navigation/>
+      <BrowserRouter>
+          <Navigation/>
+          <Router/>
+          <BusinessListings/>
+      </BrowserRouter>
       
     </div>
   );
