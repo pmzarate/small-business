@@ -1,61 +1,58 @@
 import React from 'react'
 import {
-    Button,
     Container,
     Table,
     TableBody,
     TableCell,
     TableHead,
-    TableRow,
-    Typography
-} from '@material-ui/core'
+    TableRow
+   } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
+import { Link } from 'react-router-dom'
+import Details from '../components/Details'
 
 
-
-const BusinessListings = (props) => {
-    console.log("made it to Listings")
+const Businesses = (props) => {
+    console.log(props)
     return (
-        <div>
         <Container maxWidth="lg" className="businessListing-container">
-            {/* <h4>Welcome, {props.user.username}</h4> */}
-            <div className="flex">
-            </div>
             <Table>
                 <TableHead>
                     <TableRow>
+                        {/* <TableCell>Id</TableCell> */}
                         <TableCell>Name</TableCell>
                         <TableCell>Address</TableCell>
                         <TableCell>Description</TableCell>
                         <TableCell>Hours Of Operation</TableCell>
+                        { document.cookie == "loggedIn=true" ? (<TableCell>Delete</TableCell>):(null)}
                     </TableRow>
                 </TableHead>
                     <TableBody>
                         {props.businesses.map((business, idx) => (
                         <TableRow key={business.id}>
-                            <TableCell>
-                                <Button 
-                                variant="contained" 
-                                color="primary" 
-                                onClick={props.fetchMap}> Get Map </Button>
-                            </TableCell>
-                            <TableCell>{business["name"]}</TableCell>
-                            <TableCell>{business["name"]}</TableCell>
+                            {/* <TableCell component ="th" scope="row"> {business.id}
+                            </TableCell> */}
+                            <TableCell><Link to={`/details/${business.id}`}>{business["name"]}</Link></TableCell>
+                            {/* <TableCell>
+                            <Details business={business.id}>{business["name"]}</Details>
+                            </TableCell> */}
                             <TableCell>{business["address"]}</TableCell>
                             <TableCell>{business["description"]}</TableCell>
                             <TableCell>{business["hours"]}</TableCell>
-                            <TableCell>
-                                <DeleteIcon
-                                onClick = {() => props.removeBusiness(idx)}// add onClick method here
-                                className="icon text-red" />
-                            </TableCell> 
+                            {document.cookie == "loggedIn=true" ? (
+                                    <TableCell>
+                                        <DeleteIcon
+                                            onClick = {() => props.removeBusiness(idx)}// add onClick method here
+                                            className="icon text-red" /> 
+                                    </TableCell>     
+                                    ):(null)}
                         </TableRow>
-                    ))}
+                        ))}    
                     </TableBody>
             </Table>
         </Container>
-    </div>
+
     )
 }
 
-export default BusinessListings
+export default Businesses

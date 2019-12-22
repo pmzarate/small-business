@@ -1,4 +1,4 @@
-export const addBusiness = (business) => {
+export const addBusiness = (addBusiness) => {
     return {
         type: 'ADD_BUSINESS',
         value: addBusiness
@@ -12,16 +12,3 @@ export const removeBusiness = (index) => {
     }
 }
 
-export const fetchMap = () => {
-    return (dispatch) => {
-     fetch( "place url here")
-     .then (res => res.json())
-     .then (response => {
-         const action = {
-             type: 'FETCH_MAP',
-             value: response.Results
-         }
-         dispatch(action)
-     })
-    }
-}

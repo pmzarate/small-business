@@ -7,9 +7,10 @@ import {
     DialogTitle
 } from '@material-ui/core'
 
+
 class AddBusiness extends Component {
     state = {
-        open: false,
+        // open: false,
         name: '',
         address: '',
         city: '',
@@ -24,36 +25,39 @@ class AddBusiness extends Component {
     handleTextChange = (e) => {
         const newState = { ...this.state }
         newState[e.target.id] = e.target.value
+        console.log(newState)
         this.setState(newState)
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const payload = { ...this.state }
+        const newBusiness = { ...this.state }
+        newBusiness.id = this.props.newBusiness + 1
         // delete payload.open
-        this.props.businesses(payload)
-        this.setState({ open: false })
+        this.props.addBusiness(newBusiness)
+        this.props.history.push("/")
+        // this.setState({ open: false })
     }
 
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevState.open !== this.state.open) {
-            this.setState({
-                name: '',
-                address: '',
-                city: '',
-                state: '',
-                zip: '',
-                description: '', 
-                hours: '' 
-            })
-        }
-    }
+    // componentDidUpdate = (prevProps, prevState) => {
+    //     if (prevState.open !== this.state.open) {
+    //         this.setState({
+    //             name: '',
+    //             address: '',
+    //             city: '',
+    //             state: '',
+    //             zip: '',
+    //             description: '', 
+    //             hours: '' 
+    //         })
+    //     }
+    // }
 
     render() {
         return (
             <Fragment>
                 <div style={{ textAlign: 'center' }}>
-                    <h1>Add Business:</h1>
+                    {/* <h1>Add Business:</h1> */}
                     <Button
                         variant="contained"
                         className="add-business"

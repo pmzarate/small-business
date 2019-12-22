@@ -1,24 +1,26 @@
-import React from 'react';
-import Navigation from './components/Navigation'
+import React, { Component } from 'react';
+import Navigation from './containers/Navigation'
 import './App.css';
 import Router from './Router'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './redux/store'
+import cookie from 'cookie'
+// import BusinessListings from './components/BusinessListings';
 
-import BusinessListings from './components/BusinessListings';
-import { BrowserRouter } from 'react-router-dom'
 //import logo from './logo.svg';
 
 
 function App() {
+  console.log(process.env.REACT_APP_MAP_KEY)
   return (
-    <div className="App" >
+    <Provider store = {store}>
       <BrowserRouter>
+          {console.log(document.cookie)}
           <Navigation/>
           <Router/>
-          <BusinessListings/>
       </BrowserRouter>
-      
-    </div>
+    </Provider>
   );
 }
 

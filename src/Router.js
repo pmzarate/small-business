@@ -1,14 +1,17 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import cookie from 'cookie'
-import Login from './components/Login'
-import BusinessListings from './components/BusinessListings'
+import BusinessListings from './containers/BusinessListings'
+import Details from './containers/Details'
+import Login from '../src/containers/Login'
 import AddBusiness from './containers/AddBusiness'
+//import user from './redux/reducers'
 
-const checkAuth = () => {
-    const cookies = cookie.parse(document.cookie)
-    return cookies["loggedIn"] ? true : false
-}
+const Router = () => {
+    const checkAuth = () => {
+        const cookies = cookie.parse(document.cookie)
+        return cookies["loggedIn"] ? true : false
+        }
 // Check the cookies for a cookie called "loggedIn"
 
 
@@ -25,17 +28,14 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 }
 
 
-const Router = () => {
-    return (
-        <Switch>
-            <Route exact path="/" component={BusinessListings}/>
-            <Route path="/login" component={Login} />
-           
-            {/* <ProtectedRoute exact path="/" component={BusinessList} /> */}
-            <ProtectedRoute path="/addBusiness" component={AddBusiness} />
-           
+return (
+    <Switch>
+        <Route exact path="/" component={BusinessListings}/>
+        <Route path="/details/:id" component={Details} />
+        <Route path="/login"  component={Login}/>
+        <ProtectedRoute path="/addBusiness" component={AddBusiness}/>
         </Switch>
     );
-};
+}
 
 export default Router;

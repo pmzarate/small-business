@@ -1,60 +1,74 @@
 import React, { Component } from 'react'
 // import { Redirect } from 'react-router'
 import {
-  TextField,
+  AppBar,
+  Typography,
   Button,
-  Container
-} from '@material-ui/core'
+  TextField
+} from "@material-ui/core";
+//import { login } from "../redux/actions";
 
 class Login extends Component {
-  state = {
-    username: '',
-    password: ''
-  }
+      state = {
+      username: '',
+      password: ''  
+      }
 
-  handleTextChange = (e) => {
-    const state = { ...this.state }
-    state[e.target.name] = e.target.value
-    this.setState(state)
-  }
+handleTextChange = (e) => {
+      const newState = { ...this.state }
+      newState[e.target.id] = e.target.value
+      this.setState(newState)
+      }
 
-  login = (e) => {
-    e.preventDefault()
-    document.cookie = "loggedIn=true;max-age=60*1000"
-    // set cookie here
-    // set loggedIn = true and max-age = 60*1000 (one minute)
-    window.location.replace("/")
-  }
+handleLogin = (e) => {
+      e.preventDefault()
+      document.cookie = "loggedIn=true;max-age=60*1000"
+        // set cookie here
+        // set loggedIn = true and max-age = 60*1000 (one minute)
+      window.location.replace("/")
+      }
 
-  render() {
+render(props) {
     return (
-      <div className="App">
-        <Container maxWidth="sm">
-          <form className="login-form" onSubmit={this.login}>
+      <div className="login-container">
+        {/* <container maxWidth="sm"> */}
+        <AppBar position="static">
+          <Typography>Log In</Typography>
+          </AppBar>
+        {/* <Container maxWidth="sm">  */}
+          <form className="login-form" onSubmit={this.handleLogin}>
             <TextField
               required
-              onChange={this.handleTextChange}
-              value={this.state.username}
+              id="username"              
               name="username"
               label="Username"
-              type="text" />
+              autoComplete ="username"
+              onChange={this.handleTextChange}
+              />
             <TextField
               required
-              onChange={this.handleTextChange}
-              value={this.state.password}
+              id="password"
               name="password"
               label="Password"
-              type="password" />
+              type="password"
+              autoComplete="current-password"
+              onChange={this.handleTextChange} />
             <Button
               type="submit"
+              fullWidth
               className="login-button"
               variant="contained"
-              color="primary">Login</Button>
+              color="primary">Sign In</Button>
           </form>
-        </Container>
-      </div>
-    );
+        </div>
+     )
   }
 }
 
 export default Login;
+
+
+
+
+
+  
